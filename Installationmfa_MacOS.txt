@@ -1,0 +1,36 @@
+
+Pour l'installer :
+
+----- MAC OS ----------
+L'installation sur MacOs nécessite d'avoir installé MFA.
+
+Pour installer MFA :
+1. Terminal : ouvrez l'app Terminal
+2. uname -m
+	arm64 → Mac Apple Silicon (M1, M2, M3, M4…)
+	x86_64 → Mac Intel
+	
+3. Sur Apple Silicon (arm64)
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh"
+bash Miniforge3-MacOSX-arm64.sh
+
+4. Sur Mac Intel (x86_64) :
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-x86_64.sh"
+bash Miniforge3-MacOSX-x86_64.sh
+
+5. À la fin, fermez et rouvrez le Terminal pour que conda soit reconnu. Vérifiez :
+conda --version
+mamba --version
+
+6. Créer l'environnement et installer MFA
+# Créer un environnement dédié nommé "aligner"
+mamba create -n aligner -c conda-forge montreal-forced-aligner
+
+# L'activer
+conda activate aligner
+
+7. Vérifier que l'installation est ok
+mfa --version
+mfa --help
+
+8. 

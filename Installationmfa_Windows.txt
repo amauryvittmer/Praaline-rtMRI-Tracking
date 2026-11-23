@@ -1,0 +1,55 @@
+
+----- WINDOWS ----------
+L'installation nécessite d'avoir installé MFA.
+MFA est un outil en ligne de commande d'alignement forcé (texte ↔ audio) basé sur Kaldi. Voici la procédure d'installation à jour sur Windows 10/11.
+
+1. Prérequis
+Windows 10 ou 11, 64 bits (x86_64)
+Espace disque : prévoyez au moins 10–15 Go libres (l'environnement conda + les modèles acoustiques sont volumineux)
+Un compte avec droits d'installation sur la machine (installation "Just me" suffisante)
+
+2. Installer Miniforge (conda + mamba)
+MFA se distribue via conda-forge ; il faut donc d'abord installer un gestionnaire conda. Miniforge est recommandé (léger, inclut mamba) ( conda-forge — téléchargement).
+Téléchargez Miniforge3-Windows-x86_64.exe depuis la page de téléchargement conda-forge
+Double-cliquez sur le fichier et suivez l'assistant :choisissez « Install for: Just Me » (pas besoin de droits admin)
+laissez le chemin par défaut (C:\Users\<vous>\Miniforge3)
+✅ cochez éventuellement « Add Miniforge3 to my PATH » si proposé
+
+Ouvrez le menu Démarrer et lancez « Miniforge Prompt » (c'est un terminal préconfiguré où conda est reconnu)
+Vérifiez dans le Miniforge Prompt :
+powershell
+Copier
+
+conda --version
+mamba --version
+
+💡 Si vous préférez utiliser PowerShell : ouvrez PowerShell et tapez conda init powershell, puis fermez/rouvrez PowerShell.
+
+3. Créer l'environnement et installer MFA
+Toujours dans le Miniforge Prompt (ou PowerShell initialisé) :
+powershell
+Copier
+
+# Créer un environnement dédié nommé "aligner"
+mamba create -n aligner -c conda-forge montreal-forced-aligner
+
+# L'activer
+conda activate aligner
+
+
+L'installation prend plusieurs minutes (MFA embarque Kaldi, Pynini, etc.).
+
+Vérifiez que tout fonctionne :
+powershell
+Copier
+
+mfa --version
+mfa --help
+
+# l'activer dans Praaline
+Dans Annotation, plugin MFA mettre le chemin où se trouve MFA : 
+
+
+
+
+
